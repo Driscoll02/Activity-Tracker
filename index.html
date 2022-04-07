@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./CSS/index.css" />
+
+    <!-- Material Icons link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+
+    <title>Activity Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navigation panel -->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <span class="material-icons-sharp"> fitness_center </span>
+            <a href="./index.html"><h1>Activity <span>Tracker</span></h1></a>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="./index.html" class="active">
+            <span class="material-icons-sharp"> grid_view </span>
+            <h3>Dashboard</h3>
+          </a>
+
+          <a href="./adddata.html">
+            <span class="material-icons-sharp"> edit </span>
+            <h3>Add Data</h3>
+          </a>
+
+          <a href="./weather.html">
+            <span class="material-icons-sharp"> thermostat </span>
+            <h3>Weather</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> emoji_events </span>
+            <h3>Achievements</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> add_link </span>
+            <h3>Link Strava Account</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> info </span>
+            <h3>Help</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> settings </span>
+            <h3>Settings</h3>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Dashboard Center -->
+      <main>
+        <h1>Dashboard</h1>
+
+        <div class="date">
+          <input type="date" name="dateInput" id="dateInput" />
+        </div>
+
+        <div class="large-card">
+          <div class="overview">
+            <div class="above">
+              <span class="material-icons-sharp"> insights </span>
+              <h2>Overview</h2>
+            </div>
+
+            <div class="below">
+              <h3>This section contains the average of all statistics for the date: </h3>
+              <h4 id="dateText" class="dateText">``Date placeholder``</h4>
+            </div>
+          </div>
+          
+          
+          <div class="overview-progress">
+            <div class="progress">
+              <div class="circular-progress steps-progress">
+                <div class="value-container steps-container">0%</div>
+              </div>
+              <small class="text-muted">Minimum recommended: 85%</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="small-cards">
+          <div class="steps">
+            <span class="material-icons-sharp"> directions_run </span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Steps</h3>
+                <h1 class="steps-h1">0</h1>
+              </div>
+              <div class="progress">
+                <div class="circular-progress steps-progress">
+                  <div class="value-container steps-container">0%</div>
+                </div>
+                <small class="text-muted">Recommended: 10,000</small>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+
+          <div class="calories">
+            <span class="material-icons-sharp"> restaurant </span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Calories</h3>
+                <h1 class="calories-h1">0</h1>
+              </div>
+              <div class="progress">
+                <div class="circular-progress calories-progress">
+                  <div class="value-container calories-container">0%</div>
+                </div>
+                <small class="text-muted">Recommended: 2,500Kcal</small>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+
+          <div class="water">
+            <span class="material-icons-sharp"> water_drop </span>
+            <div class="middle">
+              <div class="left">
+                <h3>Water Intake</h3>
+                <h1 class="water-h1">0ml</h1>
+              </div>
+              <div class="progress">
+                <div class="circular-progress">
+                  <div class="value-container">0%</div>
+                </div>
+                <small class="text-muted">Recommended: 3.7L</small>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+
+          <div class="sleep">
+            <span class="material-icons-sharp"> bedtime </span>
+            <div class="middle">
+              <div class="left">
+                <h3>Sleep</h3>
+                <h1 class="sleep-h1">0 Hours</h1>
+                
+              </div>
+              <div class="right">
+                <div class="loadbar">
+                  <strong class="bar" style="height: 70%;">70%</strong>
+                </div>
+                <small class="text-muted">Recommended: 8 Hours</small>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+
+          <div class="advert">
+            <div class="middle">
+              <div class="left">
+                <h3>Advert</h3>
+                <h1 class="advert-h1">Your AD could go here</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="achievements">
+            <span class="material-icons-sharp"> emoji_events </span>
+            <div class="middle">
+              <div class="left">
+                <h3>Achievements</h3>
+                <h1 class="achievements-h1">1 Completed</h1>
+              </div>
+              <div class="right">
+                <div class="loadbar">
+                  <strong class="bar" style="height: 0%;">10%</strong>
+                </div>
+              </div>
+          </div>
+
+      </main>
+
+      <aside>
+        <div class="profile-container" id="profile-container">
+          <h2 id="createProfileText">Create a profile</h1>
+          <input type="submit" value="Create Profile" id="createProfileButton">
+        </div>
+      </aside>
+    </div>
+
+    
+  </body>
+  <script src="./JS/index.js"></script>
+  <script src="./JS/updateValues.js"></script>
+</html>

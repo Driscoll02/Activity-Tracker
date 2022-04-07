@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/weather.css" />
+
+    <!-- Material Icons link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+
+    <title>Activity Tracker</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- Navigation panel -->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <span class="material-icons-sharp"> fitness_center </span>
+            <a href="./index.html">
+              <h1>Activity <span>Tracker</span></h1>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="./index.html">
+            <span class="material-icons-sharp"> grid_view </span>
+            <h3>Dashboard</h3>
+          </a>
+
+          <a href="./adddata.html">
+            <span class="material-icons-sharp"> edit </span>
+            <h3>Add Data</h3>
+          </a>
+
+          <a href="./weather.html" class="active">
+            <span class="material-icons-sharp"> thermostat </span>
+            <h3>Weather</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> emoji_events </span>
+            <h3>Achievements</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> add_link </span>
+            <h3>Link Strava Account</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> info </span>
+            <h3>Help</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp"> settings </span>
+            <h3>Settings</h3>
+          </a>
+        </div>
+      </aside>
+
+      <main class="main-weather">
+        <div class="weather-container" id="weather-container">
+          <div class="card">
+            <div class="search">
+              <input type="text" class="search-bar" name="search-bar" id="search-bar" placeholder="Search" />
+              <button class="search"><span class="material-icons-sharp"> search </span></button>
+            </div>
+            <div class="weather loading">
+              <h2 class="city">Weather in Manchester</h2>
+              <h3 class="temp">51&#176;C</h3>
+              <div class="flex">
+                <img src="" alt="" class="icon" />
+                <div class="description">Cloudy</div>
+              </div>
+              <div class="humidity">60%</div>
+              <div class="wind">Wind Speed: 6mph</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="./JS/weather.js"></script>
+</html>
