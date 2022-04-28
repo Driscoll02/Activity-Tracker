@@ -57,8 +57,8 @@ body {
   display: grid;
   width: 100%;
   margin: 0 auto;
-  gap: 1.6rem;
-  grid-template-columns: 18rem auto 23rem;
+  gap: 3rem;
+  grid-template-columns: 18rem auto;
 }
 
 a {
@@ -209,6 +209,7 @@ aside .sidebar a:hover span {
 
 main {
   margin: 1.6rem 0;
+  width: 85%;
 }
 
 main .date {
@@ -224,6 +225,19 @@ main .date input[type="date"] {
   color: var(--color-dark);
 }
 
+main .large-card {
+  background: var(--color-background);
+  border-radius: var(--border-radius-2);
+  margin: 10px 0;
+  height: 24vh;
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  gap: 1.2rem;
+}
+
 main .large-card > div span {
   background: var(--color-primary-variant);
   padding: 0.5rem;
@@ -235,18 +249,6 @@ main .large-card > div span {
 
 main .large-card > div {
   padding: 20px;
-}
-
-main .large-card {
-  background: var(--color-background);
-  border-radius: var(--border-radius-2);
-  margin: 10px 0;
-  height: 24vh;
-  box-shadow: var(--box-shadow);
-  transition: all 300ms ease;
-  display: grid;
-  grid-template-columns: repeat(2, 0.5fr);
-  gap: 1.2rem;
 }
 
 main .large-card .overview {
@@ -268,18 +270,11 @@ main .large-card h2 {
   bottom: 5px;
 }
 
-main .large-card .chart {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
 main .small-cards {
   display: grid;
   grid-template-columns: repeat(3, 0.5fr);
-  gap: 1.2rem;
+  gap: 1%;
+  width: 100%;
 }
 
 main .small-cards > div {
@@ -362,7 +357,7 @@ main .small-cards > div .middle {
 .circular-progress {
   position: relative;
   height: 140px;
-  width: 140px;
+  width: 10rem;
   background-color: var(--color-primary);
   border-radius: 50%;
   display: grid;
@@ -434,4 +429,100 @@ main .small-cards > div .middle {
 
 .profile-container input[type="text"] {
   margin-top: 2.5rem;
+}
+
+@media screen and (max-width: 1500px) {
+  main .small-cards {
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: 7rem auto 20rem;
+  }
+
+  aside .logo h1 {
+    display: none;
+  }
+
+  aside .sidebar h3 {
+    display: none;
+  }
+
+  aside .sidebar a {
+    width: 5.6rem;
+  }
+
+  aside .sidebar a:nth-child(6) {
+    position: relative;
+    margin-top: 6rem;
+  }
+
+  aside .sidebar a:last-child {
+    position: relative;
+    bottom: 75px;
+  }
+
+  main .small-cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  main .large-card {
+    width: 440px;
+  }
+  main .large-card {
+    height: 35vh;
+  }
+
+  main div.overview-progress {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: 5.5rem auto 15rem;
+  }
+
+  aside .profile-container h2 {
+    font-size: 0.2rem;
+  }
+
+  aside .profile-container input {
+    font-size: 1.1rem;
+    width: 18vw;
+  }
+
+  main .large-card {
+    height: 35vh;
+  }
+
+  main div.overview-progress {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    grid-template-columns: 5.5rem auto 15rem;
+  }
+
+  aside .profile-container h2 {
+    font-size: 1.2rem;
+  }
+
+  aside .profile-container input {
+    font-size: 1.5rem;
+    width: 18vw;
+  }
+
+  main .large-card {
+    height: 35vh;
+  }
 }

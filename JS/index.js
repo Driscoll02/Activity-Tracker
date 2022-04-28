@@ -1,3 +1,4 @@
+// Variables
 const overviewColour = "#111e88";
 
 const stepsColour = "#e66a75";
@@ -8,10 +9,6 @@ const sleepColour = "#cf9fff";
 const achievementsColour = "#f1c40f";
 
 const largeCardDateText = document.getElementById("dateText");
-
-const profileButtonParent = document.getElementById("profile-container");
-const createProfileButton = document.getElementById("createProfileButton");
-const createProfileText = document.getElementById("createProfileText");
 
 const progressBarArr = document.querySelectorAll(".circular-progress");
 const progressValArr = document.querySelectorAll(".value-container");
@@ -24,12 +21,14 @@ let waterTextValue = document.querySelector(".water-h1");
 
 let sleepTextValue = document.querySelector(".sleep-h1");
 
+// Recommended value intakes
 const recommendedSteps = 10000;
 const recommendedCalories = 2500;
 const recommendedWater = 3700;
 
 const recommendedSleep = 8;
 
+// Object to store default activity values
 var activityValues = {
   stepsValue: 0,
   caloriesValue: 0,
@@ -40,15 +39,16 @@ var activityValues = {
 let currentIndex = 0;
 let currentVerticalIndex = 0;
 
+// To display progress on dashboard
 function displayProgress() {
+  // Check that localstorage key exists
   if (localStorage.getItem("values") != null) {
     let gradientColour = "";
-
-    console.log(localStorage.getItem("values").split(",")[0]);
 
     if (currentIndex == 0) {
       gradientColour = overviewColour;
 
+      // Get the average of all values
       const averageSteps = (parseInt(localStorage.getItem("values").split(",")[0]) * recommendedSteps) / 1000000;
       const averageCalories = (parseInt(localStorage.getItem("values").split(",")[1]) / recommendedCalories) * 100;
       const averageWater = (parseInt(localStorage.getItem("values").split(",")[2]) / recommendedWater) * 100;
@@ -78,7 +78,6 @@ function displayProgress() {
       progressBarArr[currentIndex].style.background = `conic-gradient(${gradientColour} ${(parseInt(localStorage.getItem("values").split(",")[2]) / 3700) * 100 * 3.6}deg, #fff ${
         (parseInt(localStorage.getItem("values").split(",")[2]) / 3700) * 100 * 3.6
       }deg)`;
-      console.log((parseInt(localStorage.getItem("values").split(",")[2]) / 3700) * 100);
       waterTextValue.textContent = localStorage.getItem("values").split(",")[2] / 1000 + "L";
     }
 
@@ -108,9 +107,20 @@ function displayVerticalProgress() {
     sleepTextValue.textContent = localStorage.getItem("values").split(",")[3] + " Hours";
 
     currentVerticalIndex++;
+  }
+
+  if (activityValues.sleepValue == 0) {
+    vertProgressBarArr[0].style.height = "0%";
+    vertProgressBarArr[0].textContent = "";
+  }
+
+  if (localStorage.getItem("completedAchievements") != null) {
+    document.getElementById("achievements-h1").innerText = localStorage.getItem("completedAchievements") + " / 8" + " Completed";
+    vertProgressBarArr[1].style.height = (localStorage.getItem("completedAchievements")[0] / localStorage.getItem("allAchievements")[0]) * 100 + "%";
+    vertProgressBarArr[1].textContent = (localStorage.getItem("completedAchievements")[0] / localStorage.getItem("allAchievements")[0]) * 100 + "%";
   } else {
-    vertProgressBarArr[currentVerticalIndex].style.height = "0%";
-    vertProgressBarArr[currentVerticalIndex].textContent = "";
+    vertProgressBarArr[1].style.height = "0%";
+    vertProgressBarArr[1].textContent = "";
   }
 }
 
@@ -122,8 +132,9 @@ dateInput.value = new Date().toISOString().split("T")[0];
 
 let input = dateInput.value;
 let reversedDate = input.replace(/T.*/, "").split("-").reverse().join("-");
-console.log(reversedDate);
-largeCardDateText.textContent = reversedDate;
+if (largeCardDateText != null) {
+  largeCardDateText.textContent = reversedDate;
+}
 
 dateInput.addEventListener("change", function () {
   let input = dateInput.value;

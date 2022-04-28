@@ -22,6 +22,10 @@
   font-size: 1.3rem;
 }
 
+.small-cards {
+  width: 150vw;
+}
+
 .activity-input input {
   background: var(--color-info-light);
   margin-bottom: 50px;
