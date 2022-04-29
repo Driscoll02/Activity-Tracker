@@ -91,14 +91,19 @@ function displayProgress() {
 function displayVerticalProgress() {
   if (localStorage.getItem("values") != null) {
     let barColor = "";
+	
+	let calcExpression = ((parseFloat(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep);
 
     if (currentVerticalIndex == 0) {
-      if (((activityValues.sleepValue * 100) / recommendedSleep).toFixed(0) < 100) {
+      if (calcExpression <= 100) {
         barColor = sleepColour;
-        vertProgressBarArr[currentVerticalIndex].textContent = ((parseInt(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep).toFixed(0) + "%";
-        vertProgressBarArr[currentVerticalIndex].style.height = vertProgressBarArr[currentVerticalIndex].textContent;
-      } else {
-        vertProgressBarArr[currentVerticalIndex].textContent = ((parseInt(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep).toFixed(0) + "%";
+        vertProgressBarArr[currentVerticalIndex].textContent = ((parseFloat(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep).toFixed(0) + "%";
+        vertProgressBarArr[currentVerticalIndex].style.height = (parseFloat(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep + "%";
+		if(calcExpression == 100) {
+			vertProgressBarArr[currentVerticalIndex].style.borderRadius = "10px";
+		}
+      } else if (calcExpression > 100){
+        vertProgressBarArr[currentVerticalIndex].textContent = ((parseFloat(localStorage.getItem("values").split(",")[3]) * 100) / recommendedSleep).toFixed(0) + "%";
         vertProgressBarArr[currentVerticalIndex].style.height = "100%";
         vertProgressBarArr[currentVerticalIndex].style.borderRadius = "10px";
       }
@@ -108,8 +113,9 @@ function displayVerticalProgress() {
 
     currentVerticalIndex++;
   }
-
-  if (activityValues.sleepValue == 0) {
+  
+	
+  if (localStorage.getItem("values") == null || localStorage.getItem("values").split(",")[3] == "0") {
     vertProgressBarArr[0].style.height = "0%";
     vertProgressBarArr[0].textContent = "";
   }

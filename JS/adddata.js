@@ -31,6 +31,7 @@ submitButton.addEventListener("click", () => {
   }
 
   const values = [activityValues.stepsValue, activityValues.caloriesValue, activityValues.waterValue, activityValues.sleepValue];
+  
 
   localStorage.setItem("values", values);
 });
